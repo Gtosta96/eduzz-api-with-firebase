@@ -19,6 +19,8 @@ const todo = {
 }
 
 exports.getTodos = functions.https.onRequest(async (request, response) => {
+  response.set('Access-Control-Allow-Origin', '*');
+
   try {
     const snapshot = await db.collection('todos').get();
 
